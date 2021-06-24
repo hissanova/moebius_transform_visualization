@@ -28,6 +28,7 @@ class Point2D:
 #             return (self(p) + other(p)) % 2
 #         return _func
 
+
 class Circle(ABC):
     @abstractproperty
     def is_point(self) -> bool:
@@ -39,9 +40,7 @@ class Circle(ABC):
 
 
 class Line(Circle):
-    def __init__(self,
-                 orthonormal: Point2D,
-                 d: Num):
+    def __init__(self, orthonormal: Point2D, d: Num):
         self.v = orthonormal
         self.d = d
         self._insideout = False
@@ -62,10 +61,7 @@ class Line(Circle):
 
 
 class CanonicalCircle(Circle):
-    def __init__(self,
-                 centre: Point2D,
-                 radius: Num,
-                 insideout: bool = False):
+    def __init__(self, centre: Point2D, radius: Num, insideout: bool = False):
         self.c = centre
         self.r = radius
         self._insideout = insideout
