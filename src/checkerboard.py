@@ -24,7 +24,9 @@ class BoundedRegion:
 def cot(tangent_angle: Num) -> Num:
     """It is assumed that foci are at (0,1) and (0,-1). TO-DO: generalize to arbitrary foci"""
     if tangent_angle < 0 or pi < tangent_angle:
-        raise Exception("tangent angle a at focus must be between 0 <= a <= pi. Given value: {}".format(tangent_angle))
+        raise Exception(
+            "tangent angle a at focus must be between 0 <= a <= pi. Given value: {}"
+            .format(tangent_angle))
     if tangent_angle == 0:
         return + inf
     elif tangent_angle == pi:
