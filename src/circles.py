@@ -1,8 +1,9 @@
-from typing import Union
 from abc import ABC, abstractproperty
+from dataclasses import dataclass
+from typing import Union
+
 from numpy import inf
 from sympy import var
-from dataclasses import dataclass
 
 Num = Union[float, int]
 

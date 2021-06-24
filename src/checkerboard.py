@@ -1,12 +1,13 @@
-from multiprocessing import Pool
 import argparse
-from itertools import product
-from typing import Dict, List, NamedTuple, Tuple, Union
 from dataclasses import dataclass
+from itertools import product
+from multiprocessing import Pool
+from typing import Dict, List, NamedTuple, Tuple, Union
 
 from numpy import exp, inf, pi, sqrt, tan
 
-from circles import Num, Point2D, Line, CanonicalCircle, Circle, AppolonianCircle
+from circles import (AppolonianCircle, CanonicalCircle, Circle, Line, Num,
+                     Point2D)
 
 
 class Range(NamedTuple):
