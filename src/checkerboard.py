@@ -103,9 +103,9 @@ def get_horizontal_bounded_regions(ratio_list: List[Tuple[Num, Num]],
     return horiz_boundaries, horiz_region_grids
 
 
-def get_angle_grids(angle_increment: Num = 0,
+def get_angle_grids(init_angle: Num = 0,
                     p: int = 6) -> List[Tuple[Num, Num]]:
-    return [(mod_(i * pi/p + angle_increment, pi), mod_((i + 1) * pi/p + angle_increment, pi)) for i in range(p)]
+    return [(mod_(i * pi/p + init_angle, pi), mod_((i + 1) * pi/p + init_angle, pi)) for i in range(p)]
 
 
 def get_ratio_grids() -> List[Range]:
@@ -187,8 +187,8 @@ p = 6
 plot_points = args.plot_points
 
 
-def incremented_graph(increment: float):
-    angle_grids = get_angle_grids(angle_increment=increment, p=p)
+def incremented_graph(init_angle: float):
+    angle_grids = get_angle_grids(init_angle=init_angle, p=p)
     ratio_grids = get_ratio_grids()
     region_list, boundaries = make_checkerboard(angle_grids, ratio_grids, focus_list)
     return render_objects(region_list,
@@ -201,10 +201,10 @@ def incremented_graph(increment: float):
 
 n = args.frame_num
 
-param_list = [i/n * pi/3 for i in range(n)]
+init_val_list = [i/n * pi/3 for i in range(n)]
 
 with Pool() as pool:
-    frames = pool.map(incremented_graph, param_list)
+    frames = pool.map(incremented_graph, init_val_list)
 # pool = ProcessPool()
 # frames = list(map(incremented_graph, param_list))
 # plt.show()
