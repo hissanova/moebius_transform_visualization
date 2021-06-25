@@ -87,10 +87,7 @@ class CanonicalCircle(Circle):
 
 
 class AppolonianCircle(Circle):
-    def __init__(self,
-                 focus1: Point2D,
-                 focus2: Point2D,
-                 ratio: Num):
+    def __init__(self, focus1: Point2D, focus2: Point2D, ratio: Num):
         self.f1 = focus1
         self.f2 = focus2
         self.r = ratio
@@ -106,4 +103,8 @@ class AppolonianCircle(Circle):
         elif self.r is inf:
             return (x - self.f2.x) ** 2 + (y - self.f2.y) ** 2
         else:
-            return (x - self.f1.x) ** 2 + (y - self.f1.y) ** 2 - self.r * ((x - self.f2.x) ** 2 + (y - self.f2.y) ** 2)
+            return (
+                (x - self.f1.x) ** 2
+                + (y - self.f1.y) ** 2
+                - self.r * ((x - self.f2.x) ** 2 + (y - self.f2.y) ** 2)
+            )
